@@ -3,3 +3,4 @@ chromedriver
 geckodriver.log
 ghostdriver.log
 _pycache
+.DS_Store
