@@ -34,7 +34,7 @@ if __name__ == '__main__':
     tablerow = table2.find_elements_by_css_selector("tr")[5]
     mainTxt = tablerow.find_elements_by_class_name("data-up")
     daily_cases = mainTxt[0].text
-
+    print("Daily cases: ",daily_cases)
     today = date.today()
     yesterday = today - timedelta(days = 1)
     tweet = str(yesterday) + "\n" + "Daily Covid-19 cases in New Delhi:\n"+ daily_cases
