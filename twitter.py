@@ -31,12 +31,18 @@ if __name__ == '__main__':
     maintable = driver.find_element_by_id("_indiatable")
     table1 = maintable.find_element_by_id("ind_mp_tbl")
     table2 = table1.find_element_by_css_selector("tbody")
-    tablerow = table2.find_elements_by_css_selector("tr")[5]
+    tablerow = table2.find_elements_by_css_selector("tr")
+    indx = 0
+    for i,row in enumerate(tablerow):
+        if row.find_elements_by_css_selector("td")[0].text.strip() == "Delhi":
+            indx = i
+            break
+    tablerow = tablerow[indx]
     mainTxt = tablerow.find_elements_by_class_name("data-up")
     daily_cases = mainTxt[0].text
-    print("Daily cases: ",daily_cases)
+    #print("Daily cases: ",daily_cases)
     today = date.today()
     yesterday = today - timedelta(days = 1)
     tweet = str(yesterday) + "\n" + "Daily Covid-19 cases in New Delhi:\n"+ daily_cases
-    #print(tweet)
     api.update_status(tweet)
+    print("tweeted \n",tweet)
