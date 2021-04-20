@@ -2,5 +2,5 @@ config.py
 chromedriver
 geckodriver.log
 ghostdriver.log
-_pycache
+__pycache__
 .DS_Store
