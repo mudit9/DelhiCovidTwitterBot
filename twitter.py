@@ -32,8 +32,9 @@ if __name__ == '__main__':
     table1 = maintable.find_element_by_id("ind_mp_tbl")
     table2 = table1.find_element_by_css_selector("tbody")
     tablerow = table2.find_elements_by_css_selector("tr")
-    indx = 0
+    indx = 100000
     for i,row in enumerate(tablerow):
+        print(row.find_elements_by_css_selector("td")[0].text.strip())
         if row.find_elements_by_css_selector("td")[0].text.strip() == "Delhi":
             indx = i
             break
